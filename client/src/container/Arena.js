@@ -19,7 +19,7 @@ class Arena extends Component {
     const loader = isLoading && <h2>LOADING</h2>;
     return (
       loader || (
-        <div>
+        <div style={{ margin: '0 auto' }}>
           {usersList.map(({ name, score, image }) => (
             <div>
               <div>{name}</div>

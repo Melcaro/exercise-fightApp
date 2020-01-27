@@ -37,6 +37,8 @@ async function fetchUsers() {
     return await db
       .collection('users')
       .find()
+      .sort({ wonMatches: 1 })
+      .limit(2)
       .toArray();
   } catch (e) {
     console.log(e);
