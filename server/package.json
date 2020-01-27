@@ -5,6 +5,8 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start:dev": "nodemon index.js"
+    "docker compose": "docker compose up --build",
+    "initDB": " node ./scripts/init.js",
+    "start:dev": "nodemon --legacy-watch index.js"
   }
 }
