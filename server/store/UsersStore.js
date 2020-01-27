@@ -34,7 +34,7 @@ async function addUsers(usersList) {
 
 async function fetchUsers() {
   try {
-    return await dv
+    return await db
       .collection('users')
       .find()
       .toArray();

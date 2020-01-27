@@ -2,24 +2,24 @@ const UsersStore = require('../store/UsersStore');
 
 const fighters = [
   {
-    name: 'fighterA',
+    name: 'Mario',
     score: 0,
-    image: 'https://www.smashbros.com/assets_v2/img/fighter/mario/main.png',
+    image: '/images/fighter1.png',
   },
   {
-    name: 'fighterB',
+    name: 'Byleth',
     score: 0,
-    image: 'https://www.smashbros.com/assets_v2/img/fighter/byleth/main.png',
+    image: '/images/fighter2.png',
   },
   {
-    name: 'fighterC',
+    name: 'Link',
     score: 0,
-    image: 'https://www.smashbros.com/assets_v2/img/fighter/link/main.png',
+    image: '/images/fighter3.png',
   },
   {
-    name: 'fighterD',
+    name: 'Lucina',
     score: 0,
-    image: 'https://www.smashbros.com/assets_v2/img/fighter/lucina/main.png',
+    image: '/images/fighter4.png',
   },
 ];
 

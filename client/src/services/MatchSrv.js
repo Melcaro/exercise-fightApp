@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-const URL = '/api/v1';
-
-export function fetchUsers() {
-  //const {data} = await axios.get()
-  return users;
+export async function fetchUsers() {
+  const { data } = await axios.get(`/api/v1/users`);
+  return data;
 }
 
 export async function addUser(user) {

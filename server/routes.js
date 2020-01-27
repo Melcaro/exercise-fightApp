@@ -1,7 +1,7 @@
 const UsersRouter = require('./routes/UsersRouter');
 
 function routes(app) {
-  app.use('/api/users', UsersRouter);
+  app.use('/api/v1/users', UsersRouter);
 }
 
 module.exports = routes;

@@ -13,7 +13,6 @@ class Arena extends Component {
   };
 
   render() {
-    console.log(this.props);
     const {
       users: { isLoading, users: usersList, error },
     } = this.props;
@@ -21,9 +20,18 @@ class Arena extends Component {
     return (
       loader || (
         <div>
-          {usersList.map(({ name, score }) => (
+          {usersList.map(({ name, score, image }) => (
             <div>
               <div>{name}</div>
+              <div
+                style={{ width: '200px', height: '300px', margin: '0 auto' }}
+              >
+                <img
+                  src={`${image}`}
+                  alt="fighter pic"
+                  style={{ width: '100%' }}
+                />
+              </div>
               <div>{score}</div>
             </div>
           ))}
