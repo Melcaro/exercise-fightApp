@@ -8,3 +8,8 @@ export async function fetchUsers() {
 export async function attributeScores(winnerID, looserID) {
   return await axios.put(`/api/v1/users`, { winnerID, looserID });
 }
+
+export async function fetchRanking() {
+  const { data } = await axios.get('/api/v1/users/ranking');
+  return data;
+}

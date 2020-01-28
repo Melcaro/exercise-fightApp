@@ -4,6 +4,7 @@ const fighters = [
   {
     name: 'Mario',
     score: 0,
+    totalMatches: 0,
     wonMatches: 0,
     lostMatches: 0,
     image: '/images/fighter1.png',
@@ -11,6 +12,7 @@ const fighters = [
   {
     name: 'Byleth',
     score: 0,
+    totalMatches: 0,
     wonMatches: 0,
     lostMatches: 0,
     image: '/images/fighter2.png',
@@ -18,6 +20,7 @@ const fighters = [
   {
     name: 'Link',
     score: 0,
+    totalMatches: 0,
     wonMatches: 0,
     lostMatches: 0,
     image: '/images/fighter3.png',
@@ -25,6 +28,7 @@ const fighters = [
   {
     name: 'Lucina',
     score: 0,
+    totalMatches: 0,
     wonMatches: 0,
     lostMatches: 0,
     image: '/images/fighter4.png',

@@ -46,19 +46,31 @@ async function fetchUsers() {
   }
 }
 
+async function fetchRanking() {
+  try {
+    return await db
+      .collection('users')
+      .find()
+      .sort({ wonMatches: -1, totalMatches: -1 })
+      .toArray();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 async function setPoints(winnerID, looserID) {
   try {
     await db
       .collection('users')
       .updateOne(
         { _id: ObjectID(winnerID) },
-        { $inc: { score: +1, wonMatches: +1 } }
+        { $inc: { score: +1, totalMatches: +1, wonMatches: +1 } }
       );
     await db
       .collection('users')
       .updateOne(
         { _id: ObjectID(looserID) },
-        { $inc: { score: -1, lostMatches: +1 } }
+        { $inc: { score: -1, totalMatches: +1, lostMatches: +1 } }
       );
     return { status: 'points were given' };
   } catch (e) {
@@ -67,4 +79,11 @@ async function setPoints(winnerID, looserID) {
 }
 
 initializeDB();
-module.exports = { initializeDB, removeDB, addUsers, fetchUsers, setPoints };
+module.exports = {
+  initializeDB,
+  removeDB,
+  addUsers,
+  fetchUsers,
+  fetchRanking,
+  setPoints,
+};

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getUsers } from '../actions';
@@ -35,6 +37,9 @@ class Arena extends Component {
             usersList={usersList}
             attributeScore={this.attributeScore}
           />
+          <Link to="/scores">
+            <button>SCORES</button>
+          </Link>
         </div>
       )
     );

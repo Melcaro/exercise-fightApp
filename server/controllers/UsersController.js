@@ -11,4 +11,8 @@ const setScores = async (req, res) => {
   return res.status(201).json(result);
 };
 
-module.exports = { getUsers, setScores };
+const getRanking = async (req, res) => {
+  const ranking = await UsersStore.fetchRanking();
+  res.json(ranking);
+};
+module.exports = { getUsers, setScores, getRanking };
