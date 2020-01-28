@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export async function fetchUsers() {
-  const { data } = await axios.get(`/api/v1/users`);
+export async function fetchUsers(limit) {
+  const { data } = await axios.get(`/api/v1/users`, { limit });
   return data;
 }
 
@@ -10,6 +10,6 @@ export async function attributeScores(winnerID, looserID) {
 }
 
 export async function fetchRanking() {
-  const { data } = await axios.get('/api/v1/users/ranking');
+  const { data } = await axios.get('/api/v1/users');
   return data;
 }

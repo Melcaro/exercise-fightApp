@@ -1,7 +1,9 @@
 const UsersStore = require('../store/UsersStore');
 
 const getUsers = async (req, res) => {
-  const result = await UsersStore.fetchUsers();
+  const { limit } = req.body;
+  console.log(limit);
+  const result = await UsersStore.fetchUsers(limit);
   res.json(result);
 };
 
@@ -11,8 +13,4 @@ const setScores = async (req, res) => {
   return res.status(201).json(result);
 };
 
-const getRanking = async (req, res) => {
-  const ranking = await UsersStore.fetchRanking();
-  res.json(ranking);
-};
-module.exports = { getUsers, setScores, getRanking };
+module.exports = { getUsers, setScores };

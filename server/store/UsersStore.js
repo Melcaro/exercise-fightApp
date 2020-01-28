@@ -33,25 +33,13 @@ async function addUsers(usersList) {
   }
 }
 
-async function fetchUsers() {
+async function fetchUsers(limit = 0) {
   try {
     return await db
       .collection('users')
       .find()
-      .sort({ wonMatches: 1 })
-      .limit(2)
-      .toArray();
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-async function fetchRanking() {
-  try {
-    return await db
-      .collection('users')
-      .find()
-      .sort({ wonMatches: -1, totalMatches: -1 })
+      .sort({ wonMatches: 1, totalMatches: 1 })
+      .limit(limit)
       .toArray();
   } catch (e) {
     console.log(e);
@@ -84,6 +72,5 @@ module.exports = {
   removeDB,
   addUsers,
   fetchUsers,
-  fetchRanking,
   setPoints,
 };
