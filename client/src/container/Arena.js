@@ -5,6 +5,8 @@ import { getUsers } from '../actions';
 
 import { attributeScores } from '../services/MatchSrv';
 
+import { Fighters } from '../components/Fighters';
+
 class Arena extends Component {
   componentDidMount() {
     this.getFightersList();
@@ -14,37 +16,25 @@ class Arena extends Component {
     this.props.getUsers();
   };
 
-  attributeScore = (winnerID, looserID) => {
-    attributeScores(winnerID, looserID);
+  attributeScore = async (winnerID, looserID) => {
+    await attributeScores(winnerID, looserID);
+    this.getFightersList();
   };
 
   render() {
     const {
       users: { isLoading, users: usersList },
     } = this.props;
-    const fighter1 = usersList[0];
-    const fighter2 = usersList[1];
-    console.log(f1ID);
     const loader = isLoading && <h2>LOADING</h2>;
+    console.log(loader, usersList);
     return (
       loader || (
         <div style={{ margin: '0 auto' }}>
-          <h2>Choose the winner:</h2>
-          {/* {usersList.map(({ _id, name, image }) => (
-            <div key={_id}>
-              <div>{name}</div>
-              <div
-                style={{ width: '200px', height: '300px', margin: '0 auto' }}
-              >
-                <img
-                  src={`${image}`}
-                  alt="fighter pic"
-                  style={{ width: '100%' }}
-                />
-              </div>
-            </div>
-          ))} */}
-          <button>SCORES</button>
+          <h2>Who wins?</h2>
+          <Fighters
+            usersList={usersList}
+            attributeScore={this.attributeScore}
+          />
         </div>
       )
     );

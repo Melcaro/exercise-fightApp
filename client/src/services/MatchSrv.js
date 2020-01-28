@@ -6,5 +6,5 @@ export async function fetchUsers() {
 }
 
 export async function attributeScores(winnerID, looserID) {
-  return axios.put(`/api/v1/users`, { winnerID, looserID });
+  return await axios.put(`/api/v1/users`, { winnerID, looserID });
 }

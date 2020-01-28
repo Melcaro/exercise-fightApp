@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 const auth = require('../services/auth');
 const URL =
   process.env.OS && process.env.OS.startsWith('Windows')
@@ -45,5 +46,25 @@ async function fetchUsers() {
   }
 }
 
+async function setPoints(winnerID, looserID) {
+  try {
+    await db
+      .collection('users')
+      .updateOne(
+        { _id: ObjectID(winnerID) },
+        { $inc: { score: +1, wonMatches: +1 } }
+      );
+    await db
+      .collection('users')
+      .updateOne(
+        { _id: ObjectID(looserID) },
+        { $inc: { score: -1, lostMatches: +1 } }
+      );
+    return { status: 'points were given' };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 initializeDB();
-module.exports = { initializeDB, removeDB, addUsers, fetchUsers };
+module.exports = { initializeDB, removeDB, addUsers, fetchUsers, setPoints };

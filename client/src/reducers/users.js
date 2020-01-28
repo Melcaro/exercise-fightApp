@@ -2,10 +2,9 @@ import {
   GET_USERS,
   GET_USERS_SUCCESS,
   GET_USERS_FAILURE,
- 
 } from '../actionsTypes';
 
-const DEFAULT_STATE = { isLoading: false, users: [], error: null };
+const DEFAULT_STATE = { isLoading: false, users: [{}, {}], error: null };
 
 const usersReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
